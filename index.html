@@ -70,12 +70,19 @@
   <section id="contact" class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4">
       <h3 class="text-3xl font-bold mb-6 text-center">Get in Touch</h3>
-      <form form class="space-y-4" action="https://formsubmit.co/henry10284201@gmail.com" method="POST">
-        <input type="text" name="name" required placeholder="Your Name" class="w-full p-3 border rounded" required />
-        <input type="email" name="email" required placeholder="Your Email" class="w-full p-3 border rounded" required />
-        <textarea name="message" required placeholder="Your Message" required></textarea>
-        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Send</button>
-      </form>   
+     <form action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <!-- Optional: Redirect after submission -->
+      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+
+      <!-- Optional: Subject line -->
+      <input type="hidden" name="_subject" value="New Tutoring Enquiry">
+
+      <button type="submit">Send Message</button>
+     </form>
     </div>
   </section>
 
