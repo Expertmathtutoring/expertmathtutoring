@@ -75,8 +75,13 @@ y<!DOCTYPE html>
         <input type="email" name="email" placeholder="Your Email" class="w-full p-3 border rounded" required />
         <textarea name="message" placeholder="Your Message" class="w-full p-3 border rounded h-32" required></textarea>
         <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Send Message</button>
-      <!-- Optional: Redirect after submission -->
-      <input type="hidden" name="_next" value="https://expertmathtutoring.github.io/thankyou">
+
+          <div id="thank-you-message" class="hidden text-center mt-6 bg-green-100 p-4 rounded text-green-700">
+            Thank you for your message! We’ll get back to you within 1–2 business days.
+          </div>
+       
+       <!-- Optional: Redirect after submission -->
+      <input type="hidden" name="_next" value="https://expertmathtutoring.github.io/expertmathtutoring">
         
       <!-- Optional: Subject line -->
       <input type="hidden" name="_subject" value="New Tutoring Enquiry">
