@@ -1,0 +1,59 @@
+resources.html (Resource Upload & Listing)
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resources</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1><img src="logo.png" alt="Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;">
+Expertmathtutoring Resources Upload</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="https://curriculum.nsw.edu.au/learning-areas/mathematics/mathematics-k-10-2022/content" target="_blank">NSW Mathematics K-10 Syllabus</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="upload">
+      <h2>Upload a Resource</h2>
+      <form>
+        <input type="text" placeholder="Title" required>
+        <select>
+          <option value="primary">Primary</option>
+          <option value="highschool">High School</option>
+        </select>
+        <input type="file" required>
+        <button type="submit">Upload</button>
+      </form>
+    </section>
+
+    <section id="primary">
+      <h2>Primary Resources</h2>
+      <ul>
+        <li><a href="#">Year 3 – Multiplication Facts PDF</a></li>
+        <li><a href="#">Stage 2 Fractions Worksheet</a></li>
+      </ul>
+    </section>
+
+    <section id="highschool">
+      <h2>High School Resources</h2>
+      <ul>
+        <li><a href="#">Year 8 – Pythagoras Theorem Worksheet</a></li>
+        <li><a href="#">Stage 5 – Algebraic Fractions Practice</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Expertmathtutoring</p>
+  </footer>
+</body>
+</html>
