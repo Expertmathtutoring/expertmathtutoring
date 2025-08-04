@@ -35,19 +35,8 @@
       margin-right: 10px;
     }
 
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
     main {
-      padding: 40px 20px 0 20px;
+      padding: 40px 20px 0;
       max-width: 1000px;
       margin: auto;
     }
@@ -75,16 +64,14 @@
       padding: 20px;
       background-color: #1565c0;
       color: white;
-      margin-top: 0;
     }
 
-    #requestForm {
+    form {
       display: flex;
       flex-direction: column;
     }
 
-    #requestForm input,
-    #requestForm textarea {
+    input, textarea {
       padding: 10px;
       margin-bottom: 15px;
       border-radius: 5px;
@@ -92,7 +79,7 @@
       font-size: 1rem;
     }
 
-    #requestForm input[type="submit"] {
+    input[type="submit"] {
       background-color: #1976d2;
       color: white;
       font-weight: bold;
@@ -101,7 +88,7 @@
       transition: background-color 0.3s ease;
     }
 
-    #requestForm input[type="submit"]:hover {
+    input[type="submit"]:hover {
       background-color: #125ea9;
     }
   </style>
@@ -110,13 +97,18 @@
     function sendRequest(event) {
       event.preventDefault();
       const form = document.getElementById("requestForm");
-      const name = form.name.value;
-      const email = form.email.value;
-      const message = form.message.value;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields.");
+        return;
+      }
 
       fetch("https://script.google.com/macros/s/AKfycbxLA_AlJMYxqmtPkTBGcjuq2gLRpRyqKPYeODZRM9Ovtnddv8-tQBjk5eW64lAWTUMF/exec", {
         method: "POST",
-        body: new URLSearchParams({name, email, message})
+        body: new URLSearchParams({ name, email, message })
       })
       .then(response => {
         if (response.ok) {
@@ -143,12 +135,20 @@
   </header>
 
   <main>
-
-    <section id="resources">
+    <section>
       <h2>Browse Shared Resources</h2>
       <iframe src="https://drive.google.com/embeddedfolderview?id=1WS5yUdI5Yzu6K4WbJAUTQcfN8N90v6UY#grid" height="600" allowfullscreen></iframe>
     </section>
 
+    <section>
+      <h2>Request a Resource</h2>
+      <form id="requestForm" onsubmit="sendRequest(event)">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="What resource do you need?" required></textarea>
+        <input type="submit" value="Send Request" />
+      </form>
+    </section>
   </main>
 
   <footer>
