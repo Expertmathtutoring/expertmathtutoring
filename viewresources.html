@@ -114,7 +114,7 @@
       const email = form.email.value;
       const message = form.message.value;
 
-      fetch("PASTE_YOUR_WEBAPP_URL_HERE", {
+      fetch("https://script.google.com/macros/s/AKfycbwWk_yTcL_fCRwFZFYaYznCiKmiPZHP75kf4Fcu2_vqvuVlEs_Y0PkAeUujMD-qjJTY/exec", {
         method: "POST",
         body: new URLSearchParams({name, email, message})
       })
@@ -171,5 +171,6 @@
 
 </body>
 </html>
+
 
 
