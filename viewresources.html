@@ -1,123 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resources</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: linear-gradient(to right, #f5faff, #e0f7fa);
-      color: #333;
-    }
+<html>
+  <head>
+    <base target="_top">
+    <script>
+      function sendRequest() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
 
-    header {
-      background-color: #1976d2;
-      color: white;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
+        google.script.run.withSuccessHandler(function() {
+          alert("Request sent!");
+          document.getElementById("requestForm").reset();
+        }).sendRequest(name, email, message);
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Request Access to Resources</h2>
+    <form id="requestForm" onsubmit="event.preventDefault(); sendRequest();">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
 
-    header h1 {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      margin: 0;
-    }
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
 
-    header img {
-      height: 40px;
-      margin-right: 10px;
-    }
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" required></textarea><br><br>
 
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      padding: 40px 20px 0 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    section {
-      background-color: #ffffff;
-      padding: 30px;
-      border-radius: 10px;
-      margin-bottom: 40px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    section h2 {
-      margin-top: 0;
-      color: #0d47a1;
-    }
-
-    iframe {
-      border: none;
-      width: 100%;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #1565c0;
-      color: white;
-      margin-top: 0;
-    }
-
-    #request-help a {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #1976d2;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 600;
-    }
-
-    #request-help a:hover {
-      background-color: #125ea9;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>
-      <img src="logo.png" alt="Logo">
-      Expertmathtutoring Resources
-    </h1>
-  </header>
-
-  <main>
-    <section id="resources">
-      <h2>Browse Shared Resources</h2>
-      <iframe src="https://drive.google.com/embeddedfolderview?id=1WS5yUdI5Yzu6K4WbJAUTQcfN8N90v6UY#grid" height="600" allowfullscreen></iframe>
-    </section>
-
-   
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Expertmathtutoring</p>
-  </footer>
-
-</body>
+      <input type="submit" value="Request Sent">
+    </form>
+  </body>
 </html>
-
-
-
-
