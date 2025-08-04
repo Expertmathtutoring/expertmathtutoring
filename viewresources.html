@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base target="_top" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Expert Math Tutoring Resources</title>
+  <title>Resources</title>
   <link rel="stylesheet" href="css/styles.css" />
   <style>
     body {
@@ -36,6 +35,17 @@
       margin-right: 10px;
     }
 
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     main {
       padding: 40px 20px 0 20px;
       max-width: 1000px;
@@ -60,43 +70,6 @@
       width: 100%;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    label {
-      margin: 10px 0 5px;
-      font-weight: 600;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    input[type="submit"] {
-      margin-top: 20px;
-      background-color: #1976d2;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #125ea9;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -104,26 +77,67 @@
       color: white;
       margin-top: 0;
     }
+
+    #requestForm {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #requestForm input,
+    #requestForm textarea {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    #requestForm input[type="submit"] {
+      background-color: #1976d2;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    #requestForm input[type="submit"]:hover {
+      background-color: #125ea9;
+    }
   </style>
 
   <script>
-    function sendRequest() {
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
+    function sendRequest(event) {
+      event.preventDefault();
+      const form = document.getElementById("requestForm");
+      const name = form.name.value;
+      const email = form.email.value;
+      const message = form.message.value;
 
-      google.script.run.withSuccessHandler(function () {
-        alert("Request sent!");
-        document.getElementById("requestForm").reset();
-      }).sendRequest(name, email, message);
+      fetch("PASTE_YOUR_WEBAPP_URL_HERE", {
+        method: "POST",
+        body: new URLSearchParams({name, email, message})
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Request sent!");
+          form.reset();
+        } else {
+          alert("Failed to send request.");
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        alert("Error occurred.");
+      });
     }
   </script>
 </head>
-
 <body>
+
   <header>
     <h1>
-      <img src="logo.png" alt="Logo" />
+      <img src="logo.png" alt="Logo">
       Expertmathtutoring Resources
     </h1>
   </header>
@@ -134,19 +148,19 @@
       <iframe src="https://drive.google.com/embeddedfolderview?id=1WS5yUdI5Yzu6K4WbJAUTQcfN8N90v6UY#grid" height="600" allowfullscreen></iframe>
     </section>
 
-    <section id="request">
-      <h2>Request Access or Help</h2>
-      <form id="requestForm" onsubmit="event.preventDefault(); sendRequest();">
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" required />
+    <section id="request-help">
+      <h2>Request Access to Resources</h2>
+      <form id="requestForm" onsubmit="sendRequest(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
-        <input type="submit" value="Send Request" />
+        <input type="submit" value="Request Sent">
       </form>
     </section>
   </main>
@@ -154,6 +168,8 @@
   <footer>
     <p>&copy; 2025 Expertmathtutoring</p>
   </footer>
+
 </body>
 </html>
+
 
