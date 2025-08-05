@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -63,6 +63,9 @@
     section h2 {
       margin-top: 0;
       color: #0d47a1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     iframe {
@@ -143,21 +146,23 @@
   </header>
 
   <main>
-
-
     <section>
-       <h2><img src="logo_accesstoviewresourcesrequest.png" alt="Logo">Request a Resource</h2>
-       <form id="requestForm" onsubmit="sendRequest(event)">
-       <input type="text" name="name" placeholder="Your Name" required />
-       <input type="email" name="email" placeholder="Your Email" required />
-       <textarea name="message" rows="5" placeholder="What resource do you need?" required></textarea>
+      <h2>
+        <img src="logo_accesstoviewresourcesrequest.png" alt="Access Logo" style="height: 40px;">
+        Request a Resource
+      </h2>
 
-       <p class="text-sm text-gray-500" style="font-size: 0.875rem; color: #6b7280; margin-bottom: 10px;">
-      We'll respond to your email address within 1–2 business days. <br>
-      Please double-check your email is correct before submitting.
-       </p>
+      <form id="requestForm" onsubmit="sendRequest(event)">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="What resource do you need?" required></textarea>
 
-       <input type="submit" value="Send Request" />
+        <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 10px;">
+          We'll respond to your email address within 1–2 business days. <br>
+          Please double-check your email is correct before submitting.
+        </p>
+
+        <input type="submit" value="Send Request" />
       </form>
     </section>
   </main>
@@ -168,6 +173,7 @@
 
 </body>
 </html>
+
 
 
 
