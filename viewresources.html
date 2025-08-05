@@ -30,12 +30,10 @@
       margin: 0;
     }
 
-    header h2 img {
-  height: 80px;         /* Increased height */
-  margin-right: 15px;
-  max-width: 100px;     /* Optional: prevent it from being too wide */
-  object-fit: contain;  /* Keeps proportions nice */
-}
+    header     h2 img {
+      height: 40px;
+      margin-right: 10px;
+    }
 
     nav a {
       color: white;
@@ -149,10 +147,10 @@
 
   <main>
     <section>
-      <h2>
-        <img src="logo_accesstoviewresourcesrequest.png" >
-        Request a Resource
-      </h2>
+    <h2 class="text-2xl font-bold mb-4 flex items-center">
+       <img src="logo_accesstoviewresourcesrequest.png" alt="Request Logo" class="mr-3" style="height: 80px; width: auto;" />
+       Request a Resource
+    </h2>
 
       <form id="requestForm" onsubmit="sendRequest(event)">
         <input type="text" name="name" placeholder="Your Name" required />
@@ -175,6 +173,7 @@
 
 </body>
 </html>
+
 
 
 
