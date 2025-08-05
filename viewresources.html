@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -66,6 +66,12 @@
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    /* Make the logo before "Request to view a Resource" larger */
+    section h2 img {
+      width: 40px;
+      height: 40px;
     }
 
     iframe {
@@ -147,10 +153,10 @@
 
   <main>
     <section>
-    <h2>
-       <img src="logo_accesstoviewresourcesrequest.png">
-       Request to view a Resource
-    </h2>
+      <h2>
+        <img src="logo_accesstoviewresourcesrequest.png" alt="Request Logo">
+        Request to view a Resource
+      </h2>
 
       <form id="requestForm" onsubmit="sendRequest(event)">
         <input type="text" name="name" placeholder="Your Name" required />
